@@ -23,49 +23,16 @@
             border: 3px solid lime;
         }
 
-        table {
-            border: 3px solid lime;
-            color: lime;
-
-            position: absolute;
-            top: 100px;
-            right: 300px;
-            height: 300px;
-            width: 150px;
-
-            display: flex;
-        }
-
-        table th {
-            padding: 10px;
-        }
-
-        .score {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 20px;
-        }
-
     </style>
 </head>
 
 <body>
     <h1>Snake Game</h1>
     <canvas id="board"></canvas>
-
-    <table>
-        <tr>
-            <th>Player</th>
-            <th>Score</th>
-        </tr>
-        <tr class="score">
-            <td>1.</td>
-            <td>CRS</td>
-            <td>99</td>
-        </tr>
-    </table>
+    <div>
+        <p style="color: lime;">HIGH SCORE: <span id="score">99</span></p>
+    </div>
 </body>
 
 <script src="game.js"></script>
-<script src="score.js"></script>
 </html>

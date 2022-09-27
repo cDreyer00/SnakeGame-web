@@ -1,14 +1,15 @@
-let boardColor = "lime";
-let headColor = "orange";
-let tailColor = "lime";
-let appleColor = "red";
+const boardColor = "lime";
+const headColor = "orange";
+const tailColor = "lime";
+const appleColor = "red";
+
+const blockSize = 20;
+const cols = 20;
+const rows = 20;
 
 let board;
 let context;
-
-let blockSize = 20;
-let cols = 20;
-let rows = 20;
+let score;
 
 let appleAudio;
 let gameOverAudio;
@@ -20,8 +21,6 @@ let tail = [];
 let foodX = 0;
 let foodY = 0;
 
-let score = 0;
-
 let velocityX = 0;
 let velocityY = 0;
 
@@ -30,6 +29,8 @@ let gameOver = false;
 window.onload = () => {
     board = document.getElementById("board");
     context = board.getContext('2d');
+    score = document.querySelector("#score");
+
 
     // appleAudio = new Audio("soundSource");
     // gameOverAudio = new Audio("soundSource");
@@ -55,6 +56,11 @@ function update() {
         createText("Game Over", board.width / 2, board.height / 2 - 25, "center", 50);
         createText(`Score: ${score}`, board.width / 2, board.height / 2 + 25, "center");
         createText("Clicck to Start Again", (cols * blockSize) / 2, board.height - 50, "center");
+
+        if(score > localStorage.getItem("Score")) {
+            saveScore();
+        }
+
         return;
     }
     
@@ -159,11 +165,6 @@ function createText(text, x, y, textAlign = "start", fontSize = 20) {
 
 
 // Scores
-const highScores = localStorage.setItem("highScores", JSON.stringify([]));
-console.log(JSON.parse(localStorage.getItem("highScores")));
-function saveScore(name){
-    var ls = localStorage.getItem(name);
-    if(ls != null)
-        ls.
-    localStorage.setItem(name)
+function saveScore(){
+    var score = localStorage.setItem("Score", score);
 }
