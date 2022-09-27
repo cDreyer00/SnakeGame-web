@@ -9,7 +9,7 @@ const rows = 20;
 
 let board;
 let context;
-let score;
+let highScore;
 
 let appleAudio;
 let gameOverAudio;
@@ -20,6 +20,7 @@ let tail = [];
 
 let foodX = 0;
 let foodY = 0;
+let score = 0;
 
 let velocityX = 0;
 let velocityY = 0;
@@ -29,9 +30,8 @@ let gameOver = false;
 window.onload = () => {
     board = document.getElementById("board");
     context = board.getContext('2d');
-    score = document.querySelector("#score");
-
-
+    highScore = document.getElementById("score");
+    highScore.innerText = localStorage.getItem("Score") === null ? 0 : localStorage.getItem("Score");
     // appleAudio = new Audio("soundSource");
     // gameOverAudio = new Audio("soundSource");
 
@@ -59,6 +59,7 @@ function update() {
 
         if(score > localStorage.getItem("Score")) {
             saveScore();
+            highScore.innerText = score;
         }
 
         return;
@@ -99,7 +100,7 @@ function update() {
     }
 
     // hit the wall
-    if (snakeX < 0 || snakeX > cols * blockSize || snakeY < 0 || snakeY > rows * blockSize) {
+    if (snakeX < 0 || snakeX > cols *(blockSize - 1) || snakeY < 0 || snakeY > rows * (blockSize - 1)) {
         gameOverEvent();
     }
 
@@ -166,5 +167,5 @@ function createText(text, x, y, textAlign = "start", fontSize = 20) {
 
 // Scores
 function saveScore(){
-    var score = localStorage.setItem("Score", score);
+    localStorage.setItem("Score", score);
 }
