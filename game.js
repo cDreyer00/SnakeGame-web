@@ -7,8 +7,8 @@ let board;
 let context;
 
 let blockSize = 20;
-let cols = 30;
-let rows = 30;
+let cols = 20;
+let rows = 20;
 
 let appleAudio;
 let gameOverAudio;
@@ -22,7 +22,7 @@ let foodY = 0;
 
 let score = 0;
 
-let velocityX = 1;
+let velocityX = 0;
 let velocityY = 0;
 
 let gameOver = false;
@@ -44,7 +44,7 @@ window.onload = () => {
     });
     
     foodPlace();
-    setInterval(update, 100);
+    setInterval(update, 150);
 }
 
 function update() {
@@ -155,4 +155,15 @@ function createText(text, x, y, textAlign = "start", fontSize = 20) {
     context.textAlign = textAlign;
     context.fillText(text, x, y);
 
+}
+
+
+// Scores
+const highScores = localStorage.setItem("highScores", JSON.stringify([]));
+console.log(JSON.parse(localStorage.getItem("highScores")));
+function saveScore(name){
+    var ls = localStorage.getItem(name);
+    if(ls != null)
+        ls.
+    localStorage.setItem(name)
 }

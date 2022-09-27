@@ -18,16 +18,54 @@
         h1 {
             color: lime;
         }
-        canvas{
+
+        canvas {
             border: 3px solid lime;
         }
+
+        table {
+            border: 3px solid lime;
+            color: lime;
+
+            position: absolute;
+            top: 100px;
+            right: 300px;
+            height: 300px;
+            width: 150px;
+
+            display: flex;
+        }
+
+        table th {
+            padding: 10px;
+        }
+
+        .score {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 20px;
+        }
+
     </style>
 </head>
 
 <body>
     <h1>Snake Game</h1>
     <canvas id="board"></canvas>
-</body>
-<script src="script.js"></script>
 
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>Score</th>
+        </tr>
+        <tr class="score">
+            <td>1.</td>
+            <td>CRS</td>
+            <td>99</td>
+        </tr>
+    </table>
+</body>
+
+<script src="game.js"></script>
+<script src="score.js"></script>
 </html>
